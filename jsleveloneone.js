@@ -937,6 +937,14 @@ let randomString = 'let0 let0 let0 let'
 function indexOfTrirdZero(string) {
     let index = 0
     let splittedString = string.split('');
+
+    let counter = 0;
+    for (let i = 0; i< splittedString.length; i++) {
+        splittedString[i];
+        if (splittedString[i] === 0) {
+            counter++;
+        }
+    }
     return index = splittedString.lastIndexOf('0');
 }
 
