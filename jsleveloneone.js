@@ -906,6 +906,44 @@
 
 
 // ----- Уровень 2.3
-// ----- Задание 1 небольшое дополнение //еще одно дополнение, теста ради
+// ----- Задание 1 
+// let randomWord = 'баг';
+// let randomWordTwo = 'габ';
+
+// function wordEqu(word1, word2) {
+//     const lastLetterWordOne = word1[word1.length - 1];
+//     const firstLettewWordTwo = word2[0];
+
+//     const result = lastLetterWordOne === firstLettewWordTwo;
+//     let message = '';
+//     if (result == false) {
+//         message = 'Буквы не совпадают'
+//     } else {
+//         message = 'Буквы совпадают'
+//     }
+
+//     return message
+// }
+
+// const result = wordEqu(randomWord, randomWordTwo);
+// console.log(result);
+
+
+
+
+// ----- Задание 2 
+let randomString = 'let0 let0 let0 let'
+
+function indexOfTrirdZero(string) {
+    let index = 0
+    let splittedString = string.split('');
+    return index = splittedString.lastIndexOf('0');
+}
+
+const result = indexOfTrirdZero(randomString);
+console.log(result);
+
+
+
 
 
