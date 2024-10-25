@@ -1057,5 +1057,43 @@
 
 
 
+// ----- Задание 4
+// let date = '2025-12-31';
+
+// function createObject(futureObj) {
+//     let [year, month, day] = futureObj.split('-');
+
+//     let dateObj = {
+//         year: year,
+//         month: month,
+//         day: day
+//     }
+
+//     return dateObj;
+// }
+
+// const result = createObject(date);
+// console.log(result);
+
+
+
+
+
+// ----- Уровень 2.4
+// ----- Задание 1 
+// let randomString = 'абв__=;12'
+
+// function firstDigit(string) {
+//     const message = 'error';
+//     for (let i = 0; i < string.length; i++) {
+//         if (!isNaN(string[i]) && string[i] !== '') {
+//             return i;
+//         }
+//     }
+//     return message;
+// }
+
+// const result = firstDigit(randomString);
+// console.log(result);
 
 
