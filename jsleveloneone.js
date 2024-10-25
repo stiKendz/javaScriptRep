@@ -932,24 +932,128 @@
 
 
 // ----- Задание 2 
-let randomString = 'let0 let0 let0 let'
+// мой вариант (не правильный)
+// let randomString = 'let0 let0 let0 let'
 
-function indexOfTrirdZero(string) {
-    let index = 0
-    let splittedString = string.split('');
+// function indexOfTrirdZero(string) {
+//     let index = 0
+//     let splittedString = string.split('');
 
-    let counter = 0;
-    for (let i = 0; i< splittedString.length; i++) {
-        splittedString[i];
-        if (splittedString[i] === 0) {
-            counter++;
-        }
-    }
-    return index = splittedString.lastIndexOf('0');
-}
+//     let counter = 0;
+//     for (let i = 0; i< splittedString.length; i++) {
+//         splittedString[i];
+//         if (splittedString[i] === 0) {
+//             counter++;
+//         }
+//     }
+//     return index = splittedString.lastIndexOf('0');
+// }
 
-const result = indexOfTrirdZero(randomString);
-console.log(result);
+// const result = indexOfTrirdZero(randomString);
+// console.log(result);
+
+
+// вариант нейронки (правильный)
+// let randomString = 'a0000'
+
+// function indexOfTrirdZero(string) {
+//     let message = 'error'
+//     let splittedString = string.split('');
+
+//     let counter = 0;
+//     for (let i = 0; i< splittedString.length; i++) {
+//         if (splittedString[i] === '0') {
+//             counter++;
+//             if (counter === 3) {
+//                return i
+//             }
+//         } else {}
+//     }
+//     return message;
+// }
+
+// const result = indexOfTrirdZero(randomString);
+// console.log(result);
+
+
+// УВ 
+// (проветить один момент через отладчик --- counter++)
+// let randomString = 'one0 two0 three0 four0 five0';
+
+// function indexOfZero(string, positionDigit) {
+//     let splitString = string.split('');
+//     let counter = 0;
+
+//     for (let i = 0; i < splitString.length; i++) {
+//         if (splitString[i] === '0') {
+//             counter++;
+//             if (counter === positionDigit) {
+//                 return console.log(i);
+//             } else {}
+//         } else {}
+//     }
+
+//     return console.log('ошибка')
+// }
+
+// indexOfZero(randomString, 2);
+
+
+
+
+
+
+// ----- Задание 3
+// let randomString = '1x,2,3gte,4'; ---не ломается только в случае, если складывать цифры(1 - 9), с числами всему приходит конец
+// let randomString = '1x,2,3gte11,4'; //как пример
+
+// function sumNumbersOfString(string){
+//     let splittedString = string.split('');
+//     let filteredString = splittedString.filter((element) => Number(element));
+//     let numbersFromString = filteredString.map((element) => element = parseInt(element, 10));
+//     let sum = numbersFromString.reduce((number, amountNumbers) => number + amountNumbers);
+//     return sum;
+// }
+
+// const resultTwo = sumNumbersOfString(randomString);
+// console.log(resultTwo);
+
+
+// // ----- Задание 3 рабочий вариант (нет)
+// let randomString = '12bvc_,34e,56asd'; // работает пока перед числом не добавить любой символ, 
+// // либо не поставить любое число после символов, не отделенное от них запятой
+// // let randomString = '12b1vc_,j34e,56asd'; // как пример
+
+// function sumOfNumbersInString(string) {
+//     let splitString = string.split(',');
+//     let numbersFromString = splitString.map((element) => element = parseInt(element, 10));
+//     let sum = numbersFromString.reduce((previousValue, currentValue) => previousValue + currentValue);
+
+//     console.log(numbersFromString);
+//     return sum;
+// }
+
+// const resultTwo = sumOfNumbersInString(randomString);
+// console.log(resultTwo);
+
+
+// ----- Задание 3 ТОЧНО рабочий вариант
+// let randomString = '12bvc_,34e,56asd-_8';
+
+// function sumOfNumbersInString(string) {
+//     const regexp = /\d+/g;
+
+//     let matches = string.match(regexp);
+//     let numbersFromString = matches ? matches.map(element => parseInt(element, 10)) : [];
+//     let sum = numbersFromString.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+
+//     console.log(numbersFromString);
+//     return sum;
+// }
+
+// const result = sumOfNumbersInString(randomString);
+// console.log(result);
+
 
 
 
