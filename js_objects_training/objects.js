@@ -40,18 +40,29 @@
 
 
 // ----- 3 -----
-function runCode() {
-    let user = {
-        name: 'Иван',
-        surname: 'Семенов',
-        patronymic: 'Иванович'
-    }
+// function runCode() {
+//     let user = {
+//         name: 'Иван',
+//         surname: 'Семенов',
+//         patronymic: 'Иванович'
+//     }
 
-    console.log(`${user['name']} ${user['surname']} ${user['patronymic']}`);
+//     console.log(`${user['name']} ${user['surname']} ${user['patronymic']}`);
     
-    alert(`${user['name']} ${user['surname']} ${user['patronymic']}`);
-}
+//     alert(`${user['name']} ${user['surname']} ${user['patronymic']}`);
+// }
 
 
 // ----- 4 -----
+function runCode() {
+    let date = {
+        year: '2024',
+        month: '10',
+        day: '27'
+    }
+
+    console.log(`${date.year}-${date.month}-${date.day}`);
+
+    alert(`${date.year}-${date.month}-${date.day}`);
+}
 
