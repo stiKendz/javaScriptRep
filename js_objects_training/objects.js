@@ -54,15 +54,59 @@
 
 
 // ----- 4 -----
+// function runCode() {
+//     let date = {
+//         year: '2024',
+//         month: '10',
+//         day: '27'
+//     }
+
+//     console.log(`${date.year}-${date.month}-${date.day}`);
+
+//     alert(`${date.year}-${date.month}-${date.day}`);
+// }
+
+
+// ----- 5 -----
+// let obj = {
+//     a: '1',
+//     b: '2',
+//     c: '3'
+// }
+// obj['a'] = '!';
+// obj.b = '!';
+// console.log(obj); //тест изменений в объекте
+
+// function runCode() {
+//     let randomObject = {
+//         x: 1,
+//         y: 2,
+//         z: 3
+//     }
+
+//     for (let key in randomObject) {
+//         if (randomObject.hasOwnProperty(key) && typeof randomObject[key] === 'number') {
+//             randomObject[key] = randomObject[key] * randomObject[key];
+//         }
+//     }
+//     console.log(randomObject);
+// } // задание на вывод квадратов элементов объекта
+
+
+
+
+// ----- 6 -----
 function runCode() {
-    let date = {
-        year: '2024',
-        month: '10',
-        day: '27'
+    let obj = {};
+
+    for (let i = 0; i < 10; i++) {
+        for (key in obj) {
+            if (key < 10) {
+                key ++;
+            }
+        }
     }
-
-    console.log(`${date.year}-${date.month}-${date.day}`);
-
-    alert(`${date.year}-${date.month}-${date.day}`);
+    console.log(obj);
 }
 
+runCode();
