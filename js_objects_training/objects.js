@@ -54,15 +54,34 @@
 
 
 // ----- 4 -----
+// function runCode() {
+//     let date = {
+//         year: '2024',
+//         month: '10',
+//         day: '27'
+//     }
+
+//     console.log(`${date.year}-${date.month}-${date.day}`);
+
+//     alert(`${date.year}-${date.month}-${date.day}`);
+// }
+
+
+// ----- 5 -----
 function runCode() {
-    let date = {
-        year: '2024',
-        month: '10',
-        day: '27'
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3
     }
 
-    console.log(`${date.year}-${date.month}-${date.day}`);
+    let result = 0;
 
-    alert(`${date.year}-${date.month}-${date.day}`);
+    for (let i = 0; i < Object.keys(obj); i++) {
+        obj[i * i];
+    }   
+
+    console.log(obj);
 }
 
+console.log(result)
