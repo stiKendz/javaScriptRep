@@ -68,6 +68,7 @@
 
 
 // ----- 5 -----
+
 function runCode() {
     let obj = {
         a: 1,
@@ -85,3 +86,46 @@ function runCode() {
 }
 
 console.log(result)
+// let obj = {
+//     a: '1',
+//     b: '2',
+//     c: '3'
+// }
+// obj['a'] = '!';
+// obj.b = '!';
+// console.log(obj); //тест изменений в объекте
+
+// function runCode() {
+//     let randomObject = {
+//         x: 1,
+//         y: 2,
+//         z: 3
+//     }
+
+//     for (let key in randomObject) {
+//         if (randomObject.hasOwnProperty(key) && typeof randomObject[key] === 'number') {
+//             randomObject[key] = randomObject[key] * randomObject[key];
+//         }
+//     }
+//     console.log(randomObject);
+// } // задание на вывод квадратов элементов объекта
+
+
+
+
+// ----- 6 -----
+function runCode() {
+    let obj = {};
+
+    for (let i = 0; i < 10; i++) {
+        for (key in obj) {
+            if (key < 10) {
+                key ++;
+            }
+        }
+    }
+    console.log(obj);
+}
+
+runCode();
+
