@@ -85,7 +85,6 @@ function runCode() {
     console.log(obj);
 }
 
-console.log(result)
 // let obj = {
 //     a: '1',
 //     b: '2',
@@ -115,16 +114,54 @@ console.log(result)
 
 // ----- 6 -----
 function runCode() {
-    let obj = {};
+    // let obj = {};
 
-    for (let i = 0; i < 10; i++) {
-        for (key in obj) {
-            if (key < 10) {
-                key ++;
-            }
+    // let keys = [1, 2, 3, 4];
+    // let values = ['a', 'b', 'c', 'd'];
+    
+    // for (let i = 0; i < 4; i++) {
+    //     // let key = keys[i];
+    //     // let value = values[i];
+    //     // obj[key] = value;
+
+    //     //или
+
+    //     for (let i = 0; i < 4; i++) {
+    //         obj[keys[i]] = values[i];
+    //     }
+    // }
+
+    // задания на создания объектов
+    // let weekdayNames = ['пн','вт','ср','чт','пт','сб','вс'];
+    // let daysNum = [1, 2, 3, 4, 5, 6, 7];
+    // let weekObject = {};
+
+    // for (let i = 0; i < daysNum.length; i++) {
+    //     weekObject[[daysNum[i]]] = weekdayNames[i];
+    // }
+
+    // console.log(weekObject)
+    // alert(weekObject['1']); для окна браузера
+
+    // перебор объекта и создание из него нового, котором будут только четные числа
+    let chetObject = {a: 1, b: 2, c: 3, d: 4, e: 5};
+    let newObject = {};
+    function chetniyeNumbers(obj) {
+        let newKeys = [];
+        let newEntires = [];
+        
+        newKeys = Object.keys(chetObject);
+        newEntires = Object.entries(chetObject);
+        let filteredEntires = newEntires.filter((element) => element % 2 === 0);
+
+        console.log(filteredEntires)
+
+        for (let i = 0; i < newKeys.length; i++) {
+            newObject[newKeys[i]] = newEntires[i];
         }
+        return console.log(newObject);
     }
-    console.log(obj);
+    chetniyeNumbers(chetObject)
 }
 
 runCode();
