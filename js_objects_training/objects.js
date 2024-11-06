@@ -162,7 +162,7 @@ function runCode() {
 
 
     // перебор массива объектов
-    // нужно получить из него элемент Bob и записать его в переменную
+    // нужно получить массива объектов объект Bob и записать его в переменную
     let user = [
         {
             name: "John",
@@ -177,6 +177,14 @@ function runCode() {
             age: 19
         }
     ] 
+    
+
+    function arrayObjSearch(array) {
+        let searchName = "Bob";
+        let newVariable = array.find(element => element.name === searchName);
+        return console.log(newVariable);
+    }
+    arrayObjSearch(user)
 }
 
 runCode();
