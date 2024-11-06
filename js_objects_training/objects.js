@@ -144,24 +144,39 @@ function runCode() {
     // alert(weekObject['1']); для окна браузера
 
     // перебор объекта и создание из него нового, котором будут только четные числа
-    let chetObject = {a: 1, b: 2, c: 3, d: 4, e: 5};
-    let newObject = {};
-    function chetniyeNumbers(obj) {
-        let newKeys = [];
-        let newEntires = [];
-        
-        newKeys = Object.keys(chetObject);
-        newEntires = Object.entries(chetObject);
-        let filteredEntires = newEntires.filter((element) => element % 2 === 0);
+    // let chetObject = {
+    //     a: 1,
+    //     b: 2, 
+    //     c: 3, 
+    //     d: 4, 
+    //     e: 5,
+    //     f: 6,
+    //     g: 7 
+    // };
 
-        console.log(filteredEntires)
+    // function filteredChetObject(obj) {
+    //     let filteredObject = Object.fromEntries(Object.entries(obj).filter(([key, value]) => value % 2 === 0));
+    //     return console.log(filteredObject);
+    // }
+    // filteredChetObject(chetObject);
 
-        for (let i = 0; i < newKeys.length; i++) {
-            newObject[newKeys[i]] = newEntires[i];
+
+    // перебор массива объектов
+    // нужно получить из него элемент Bob и записать его в переменную
+    let user = [
+        {
+            name: "John",
+            age: 30
+        },
+        {
+            name: "Bob",
+            age: 21
+        },
+        {
+            name: "Anna",
+            age: 19
         }
-        return console.log(newObject);
-    }
-    chetniyeNumbers(chetObject)
+    ] 
 }
 
 runCode();
