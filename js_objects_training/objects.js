@@ -193,33 +193,62 @@ function runCode() {
 
     // ----- 8 -----
     // проверка что объект не пустой, и в нем есть определенный ключ
-    let person = {
-        name: "Klaus",
-        surname: "Badelt",
-        age: 21
-    }
-    let needKey = 'surname';
+    // let person = {
+    //     name: "Klaus",
+    //     surname: "Badelt",
+    //     age: 21
+    // }
+    // let needKey = 'surname';
     
-    // выводит строку badelt в виде массива от 0 до 5
-    // let searchKey = Object.keys(person['surname']);
-    // console.log(searchKey) 
+    // // выводит строку badelt в виде массива от 0 до 5
+    // // let searchKey = Object.keys(person['surname']);
+    // // console.log(searchKey) 
 
-    function notEmpty(obj) {
-        if (Object.keys(obj).length === 0) {    
-            console.log("Объект пустой");
-        } else {
-            let searchKey = Object.keys(obj).find(key => key === needKey);
+    // function notEmpty(obj) {
+    //     if (Object.keys(obj).length === 0) {    
+    //         console.log("Объект пустой");
+    //     } else {
+    //         let searchKey = Object.keys(obj).find(key => key === needKey);
             
-            if (searchKey) {
-                console.log(obj[searchKey]);
-            } else {
-                console.log(`Ключ ${needKey} в объекте не найден`);
-            }
+    //         if (searchKey) {
+    //             console.log(obj[searchKey]);
+    //         } else {
+    //             console.log(`Ключ ${needKey} в объекте не найден`);
+    //         }
 
-            return console.log(searchKey);
+    //         return console.log(searchKey);
+    //     }
+    // }
+    // notEmpty(person);
+
+
+    // ----- 8 -----
+    // перебор массива объектов
+    // нужно удалить из массива объектов объект с name Anna
+    let users = [
+        {
+            name: "John",
+            age: 30
+        },
+        {
+            name: "Bob",
+            age: 21
+        },
+        {
+            name: "Anna",
+            age: 19
         }
+    ] 
+
+    function deleteObjectFromArray(array, deleteName) {
+        // эта чепуха создаст новый объект, притом пустой, если убрать .filter ..... то уже будет не пустой
+        // let deletedObject = Object.fromEntries(Object.entries(array).filter(([key, value]) => value === 'Anna'));
+        // return console.log(deletedObject);
+        let deletedObject = array.filter(person => person.name === deleteName);
+        return console.log(deletedObject);
     }
-    notEmpty(person);
+    deleteObjectFromArray(users, 'Anna');
+    console.log(users);
 }
 
 runCode();
