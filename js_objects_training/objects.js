@@ -1,3 +1,12 @@
+// новая функция, выводящая последню строку из консоли в контейнер с id output
+const consoleOnWebPage = console.log;
+
+console.log = function() {
+    const message = Array.prototype.join.call(arguments, " ");
+    document.querySelector("#output").textContent = message;
+    consoleOnWebPage.apply(console, arguments);
+} 
+
 // // ----- 1 ----- // введение
 // let weekdayNames = {
 //     1: 'Понедельник',
@@ -225,31 +234,53 @@ function runCode() {
     // ----- 8 -----
     // перебор массива объектов
     // нужно удалить из массива объектов объект с name Anna
-    let users = [
-        {
-            name: "John",
-            age: 30
-        },
-        {
-            name: "Bob",
-            age: 21
-        },
-        {
-            name: "Anna",
-            age: 19
-        }
-    ] 
+    // let users = [
+    //     {
+    //         name: "John",
+    //         age: 30
+    //     },
+    //     {
+    //         name: "Bob",
+    //         age: 21
+    //     },
+    //     {
+    //         name: "Anna",
+    //         age: 19
+    //     }
+    // ] 
 
-    function deleteObjectFromArray(array, deleteName) {
-        // эта чепуха создаст новый объект, притом пустой, если убрать .filter ..... то уже будет не пустой
-        // let deletedObject = Object.fromEntries(Object.entries(array).filter(([key, value]) => value === 'Anna'));
-        // return console.log(deletedObject);
-        let deletedObject = array.filter(person => person.name === deleteName);
-        return console.log(deletedObject);
+    // function deleteObjectFromArray(array, deleteName) {
+    //     // эта чепуха создаст новый объект, притом пустой, если убрать .filter ..... то уже будет не пустой
+    //     // let deletedObject = Object.fromEntries(Object.entries(array).filter(([key, value]) => value === 'Anna'));
+    //     // return console.log(deletedObject);
+    //     let deletedObject = array.filter(person => person.name === deleteName);
+    //     return console.log(deletedObject);
+    // }
+    // deleteObjectFromArray(users, 'Anna');
+    // console.log(users);
+
+
+    // ----- 9 ----- проверка порядка ключей
+    let keysObject = {
+        1: "one", 
+        3: "three", 
+        4: "four", 
+        2: "two",
+        10: "ten"
     }
-    deleteObjectFromArray(users, 'Anna');
-    console.log(users);
+    console.log(keysObject['1']);
+    console.log(keysObject['2']);
+    // получаем массив ключей
+    let keys = Object.keys(keysObject); 
+    console.log(keys); //выведет все ключи по порядку (повторение - мать учения)
+    // узнаём длинну
+    let objectLength = Object.keys(keysObject).length;
+    console.log(objectLength); // длинна 5
+    // записываем ключ в переменную
+    let el = '3';
+    console.log(keysObject[el]); // выведет three
 }
 
 runCode();
+
 
