@@ -69,22 +69,24 @@
 
 // ----- 5 -----
 
-function runCode() {
-    let obj = {
-        a: 1,
-        b: 2,
-        c: 3
-    }
+// хламориант
+// function runCode() {
+//     let obj = {
+//         a: 1,
+//         b: 2,
+//         c: 3
+//     }
 
-    let result = 0;
+//     let result = 0;
 
-    for (let i = 0; i < Object.keys(obj); i++) {
-        obj[i * i];
-    }   
+//     for (let i = 0; i < Object.keys(obj); i++) {
+//         obj[i * i];
+//     }   
 
-    console.log(obj);
-}
+//     console.log(obj);
+// }
 
+// здоровый вариант
 // let obj = {
 //     a: '1',
 //     b: '2',
@@ -112,8 +114,9 @@ function runCode() {
 
 
 
-// ----- 6 -----
+
 function runCode() {
+    // ----- 6 -----
     // let obj = {};
 
     // let keys = [1, 2, 3, 4];
@@ -161,30 +164,62 @@ function runCode() {
     // filteredChetObject(chetObject);
 
 
+    // ----- 7 -----
     // перебор массива объектов
     // нужно получить массива объектов объект Bob и записать его в переменную
-    let user = [
-        {
-            name: "John",
-            age: 30
-        },
-        {
-            name: "Bob",
-            age: 21
-        },
-        {
-            name: "Anna",
-            age: 19
-        }
-    ] 
+    // let user = [
+    //     {
+    //         name: "John",
+    //         age: 30
+    //     },
+    //     {
+    //         name: "Bob",
+    //         age: 21
+    //     },
+    //     {
+    //         name: "Anna",
+    //         age: 19
+    //     }
+    // ] 
     
 
-    function arrayObjSearch(array) {
-        let searchName = "Bob";
-        let newVariable = array.find(element => element.name === searchName);
-        return console.log(newVariable);
+    // function arrayObjSearch(array) {
+    //     let searchName = "Bob";
+    //     let newVariable = array.find(element => element.name === searchName);
+    //     return console.log(newVariable);
+    // }
+    // arrayObjSearch(user)
+
+
+    // ----- 8 -----
+    // проверка что объект не пустой, и в нем есть определенный ключ
+    let person = {
+        name: "Klaus",
+        surname: "Badelt",
+        age: 21
     }
-    arrayObjSearch(user)
+    let needKey = 'surname';
+    
+    // выводит строку badelt в виде массива от 0 до 5
+    // let searchKey = Object.keys(person['surname']);
+    // console.log(searchKey) 
+
+    function notEmpty(obj) {
+        if (Object.keys(obj).length === 0) {    
+            console.log("Объект пустой");
+        } else {
+            let searchKey = Object.keys(obj).find(key => key === needKey);
+            
+            if (searchKey) {
+                console.log(obj[searchKey]);
+            } else {
+                console.log(`Ключ ${needKey} в объекте не найден`);
+            }
+
+            return console.log(searchKey);
+        }
+    }
+    notEmpty(person);
 }
 
 runCode();
