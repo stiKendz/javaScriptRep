@@ -278,7 +278,44 @@ function runCode() {
     console.log(objectLength); // длинна 5
     // записываем ключ в переменную
     let el = '3';
-    console.log(keysObject[el]); // выведет three
+    console.log(keysObject[el]); // выведет three, не нужно брать в кавычки, так как el это переменная, которая хранит имя ключа
+    console.log(keysObject['1']); // выведет one, нужно брать в кавычки, так как мы обращаемся непосредственно к ключу, а не переменной хранящей его
+    // пара проверок
+    let randomObject = {
+        x: 1,
+        y: 2,
+        z: 3
+    }
+    let property = 'x';
+    console.log(randomObject.property); // выведет undefined
+    console.log(randomObject['property']) // выведет undefined
+    console.log(randomObject[property]) // выведет 1
+
+    // вычисляемые свойства
+    let testKey = 'a';
+    let testObject = {
+        [testKey + 'else']: 1,
+        b: 2,
+        c: 3
+    }
+    console.log(Object.keys(testObject)); // вывод aelse,b,c
+
+    // нужно чтобы ключи объекта брались из переменных / массива
+    let countObject = {
+        x: 1,
+        y: 2,
+        z: 3
+    }
+    let keysForObj = ['key1', 'key2', 'key3', 'key4'];
+
+    function keysFromLet (obj, arr) {
+        let newObject = {};
+        for (let i = 0; i < Object.keys(obj).length; i++) {
+            newObject = Object.keys(obj[arr]);
+        }
+        return console.log(newObject);
+    }
+    keysFromLet(countObject, keysForObj)
 }
 
 runCode();
