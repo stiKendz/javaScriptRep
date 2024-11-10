@@ -1,0 +1,90 @@
+$prettyBorder: 2px solid;
+$slowTransition: 1s;
+$normalTransition: 0.4s;
+$bigScale: scale(1.5);
+$smallScale: scale(1.05);
+$negativeSmallScale: scale(0.8);
+$prettyShadow: 0px 5px 10px 0px black;
+
+@mixin baseColumnFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+@mixin baseFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin baseSmallButton {
+    @include baseFlex;
+    margin: 0;
+    padding: 2px 20px;
+    border: $prettyBorder black;
+
+    font-size: 14px;
+    font-weight: 100;
+}
+
+
+header {
+    // всё в файле style.css
+    z-index: 2;
+}
+
+.square-calc-conrainer {
+    // всё в файле style.css
+    z-index: 1;
+
+    box-shadow: $prettyShadow;
+}
+
+.inputs-container {
+    @include baseColumnFlex;
+    margin: 0;
+    border: 0;
+    padding-top: 20px;
+    gap: 20px 0px;
+}
+
+.input-side {
+    // часть в файле style.css
+    @include baseFlex;
+
+    border: 0;
+    border-bottom: $prettyBorder;
+
+    outline: none;
+}
+
+.calculate-button {
+    @include baseSmallButton;
+
+    outline: none;
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        border: $prettyBorder grey;
+
+        transition: $normalTransition;
+    }
+
+    &:active {
+        transform: $negativeSmallScale;
+    }
+}
+
+.output {
+    border-bottom: $prettyBorder;
+
+    &:hover {
+        transform: $smallScale;
+        transition: $slowTransition;
+        cursor: pointer;
+    }
+}

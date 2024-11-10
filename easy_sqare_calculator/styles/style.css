@@ -62,21 +62,7 @@ header {
     border-radius: 5px;
 }
 
-.inputs-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    border: 0;
-    padding-top: 20px;
-    gap: 20px 0px;
-}
-
-.input-side {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    
+.input-side {    
     font-size: 18px;
     font-weight: 500;
 
@@ -86,16 +72,6 @@ header {
 }
 .input-side::placeholder {
     color: black;
-}
-
-.calculate-button {
-    margin: 0;
-    margin-top: 20px;
-
-    outline: none;
-}
-.calculate-button:hover {
-    cursor: pointer;
 }
 
 .outputs-container {
