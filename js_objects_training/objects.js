@@ -261,63 +261,103 @@ function runCode() {
 
 
     // ----- 9 ----- проверка порядка ключей
-    let keysObject = {
-        1: "one", 
-        3: "three", 
-        4: "four", 
-        2: "two",
-        10: "ten"
-    }
-    console.log(keysObject['1']);
-    console.log(keysObject['2']);
-    // получаем массив ключей
-    let keys = Object.keys(keysObject); 
-    console.log(keys); //выведет все ключи по порядку (повторение - мать учения)
-    // узнаём длинну
-    let objectLength = Object.keys(keysObject).length;
-    console.log(objectLength); // длинна 5
-    // записываем ключ в переменную
-    let el = '3';
-    console.log(keysObject[el]); // выведет three, не нужно брать в кавычки, так как el это переменная, которая хранит имя ключа
-    console.log(keysObject['1']); // выведет one, нужно брать в кавычки, так как мы обращаемся непосредственно к ключу, а не переменной хранящей его
-    // пара проверок
-    let randomObject = {
-        x: 1,
-        y: 2,
-        z: 3
-    }
-    let property = 'x';
-    console.log(randomObject.property); // выведет undefined
-    console.log(randomObject['property']) // выведет undefined
-    console.log(randomObject[property]) // выведет 1
+    // let keysObject = {
+    //     1: "one", 
+    //     3: "three", 
+    //     4: "four", 
+    //     2: "two",
+    //     10: "ten"
+    // }
+    // console.log(keysObject['1']);
+    // console.log(keysObject['2']);
+    // // получаем массив ключей
+    // let keys = Object.keys(keysObject); 
+    // console.log(keys); //выведет все ключи по порядку (повторение - мать учения)
+    // // узнаём длинну
+    // let objectLength = Object.keys(keysObject).length;
+    // console.log(objectLength); // длинна 5
+    // // записываем ключ в переменную
+    // let el = '3';
+    // console.log(keysObject[el]); // выведет three, не нужно брать в кавычки, так как el это переменная, которая хранит имя ключа
+    // console.log(keysObject['1']); // выведет one, нужно брать в кавычки, так как мы обращаемся непосредственно к ключу, а не переменной хранящей его
+    // // пара проверок
+    // let randomObject = {
+    //     x: 1,
+    //     y: 2,
+    //     z: 3
+    // }
+    // let property = 'x';
+    // console.log(randomObject.property); // выведет undefined
+    // console.log(randomObject['property']) // выведет undefined
+    // console.log(randomObject[property]) // выведет 1
 
-    // вычисляемые свойства
-    let testKey = 'a';
-    let testObject = {
-        [testKey + 'else']: 1,
-        b: 2,
-        c: 3
-    }
-    console.log(Object.keys(testObject)); // вывод aelse,b,c
+    // // вычисляемые свойства
+    // let testKey = 'a';
+    // let testObject = {
+    //     [testKey + 'else']: 1,
+    //     b: 2,
+    //     c: 3
+    // }
+    // console.log(Object.keys(testObject)); // вывод aelse,b,c
 
-    // нужно чтобы ключи объекта брались из переменных / массива
-    let countObject = {
-        x: 1,
-        y: 2,
-        z: 3
-    }
-    let keysForObj = ['key1', 'key2', 'key3', 'key4'];
+    // // нужно чтобы ключи объекта брались из переменных / массива
+    // let countObject = {
+    //     x: 1,
+    //     y: 2,
+    //     z: 3
+    // }
+    // let keysForObj = ['key1', 'key2', 'key3', 'key4'];
 
-    function keysFromLet (obj, arr) {
-        let newObject = {};
-        for (let i = 0; i < Object.keys(obj).length; i++) {
-            newObject = Object.keys(obj[arr]);
-        }
-        return console.log(newObject);
-    }
-    keysFromLet(countObject, keysForObj)
+    // function newKeys(obj, keysArray) {
+    //     let newKeysObject = {};
+    //     let objOldKeys = Object.keys(obj);
+
+    //     for (let i = 0; i < objOldKeys.length && i < keysArray.length; i++) {
+    //         newKeysObject[keysArray[i]] = obj[objOldKeys[i]];
+    //     }
+    //     return console.log(newKeysObject);
+    // }
+    // newKeys(countObject, keysForObj);
+
+
+
+    // ----- 10 ----- оператор in и типы, Array.isArray()
+    // let newObj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // }
+    // let arr = [1, 2, 3];
+
+    // console.log('x' in newObj); // false
+    // console.log('b' in newObj); // true
+
+    // delete newObj.a;
+    // console.log(newObj); // b: 2, c: 3
+
+    // console.log( typeof {x: 1, y: 2, z: 3} ); // object
+    // console.log( typeof {} ); // object
+    // console.log( typeof newObj ); // object
+    // console.log( typeof newObj['a'] ); // undefined
+    // console.log( typeof {x: 1, y: 2, z: 3} ); // object
+    // console.log( typeof [1, 2, 3] ); // object
+    // console.log( typeof arr ); // object
+    // console.log( typeof arr[0] ); // number, если 1 // string, если '1'
+    // console.log( typeof arr[0] ); // string, если '1' // number, если 1 
+
+    // Array.isArray()
+    // console.log( Array.isArray([]) ); // true
+    // console.log( Array.isArray({}) ); // false
+
+    // console.log( Array.isArray([1, 2, 3]) ); // true
+    // console.log( Array.isArray({x: 1, y: 2, z: 3}) ); // false
+
+    // <в файле terminal.js> ----- 10.1 ----- примитивы, ссылки на обекты, константы </в файле terminal.js>
+
 }
 
 runCode();
+
+
 
 
