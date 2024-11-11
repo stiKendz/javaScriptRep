@@ -27,15 +27,42 @@ $prettyShadow: 0px 5px 10px 0px black;
     font-weight: 100;
 }
 
+@font-face {
+    font-family: "Oswald";
+    src: url(../fonts/static/Oswald-Regular.ttf);
+}
+
+html,
+body {
+    font-family: Oswald;
+}
+
 
 header {
     // всё в файле style.css
     z-index: 2;
+    h1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+
+        color: white;
+
+        -webkit-text-stroke: 1px black;
+
+        &::before {
+
+        }
+        &::after {
+
+        }
+    }
 }
 
 .square-calc-conrainer {
     // всё в файле style.css
     z-index: 1;
+
+    width: 200px;
 
     box-shadow: $prettyShadow;
 }
@@ -52,8 +79,12 @@ header {
     // часть в файле style.css
     @include baseFlex;
 
+    width: 180px;
+
     border: 0;
     border-bottom: $prettyBorder;
+
+    font-family: Oswald;
 
     outline: none;
 }
@@ -61,20 +92,35 @@ header {
 .calculate-button {
     @include baseSmallButton;
 
+    position: relative;
+
+    font-family: Oswald;
+
     outline: none;
     user-select: none;
+    cursor: pointer;
 
-    &:hover {
-        cursor: pointer;
+    &::before {
+        content: '';
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0%;
+        height: 1.25px;
+
+        background-color: blue;
+
+        transition: width 0.4s ease-out;
+        transform: translateX(-50%);
     }
 
-    &:focus {
+    &:hover::before {
+        width: 100%;
+    }
+    &:active {
         border: $prettyBorder grey;
 
-        transition: $normalTransition;
-    }
-
-    &:active {
         transform: $negativeSmallScale;
     }
 }

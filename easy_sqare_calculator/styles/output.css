@@ -1,9 +1,24 @@
+@font-face {
+  font-family: "Oswald";
+  src: url(../fonts/static/Oswald-Regular.ttf);
+}
+html,
+body {
+  font-family: Oswald;
+}
+
 header {
   z-index: 2;
 }
-
+header h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
 .square-calc-conrainer {
   z-index: 1;
+  width: 200px;
   box-shadow: 0px 5px 10px 0px black;
 }
 
@@ -22,8 +37,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 180px;
   border: 0;
   border-bottom: 2px solid;
+  font-family: Oswald;
   outline: none;
 }
 
@@ -36,17 +53,28 @@ header {
   border: 2px solid black;
   font-size: 14px;
   font-weight: 100;
+  position: relative;
+  font-family: Oswald;
   outline: none;
   user-select: none;
-}
-.calculate-button:hover {
   cursor: pointer;
 }
-.calculate-button:focus {
-  border: 2px solid grey;
-  transition: 0.4s;
+.calculate-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.25px;
+  background-color: blue;
+  transition: width 0.4s ease-out;
+  transform: translateX(-50%);
+}
+.calculate-button:hover::before {
+  width: 100%;
 }
 .calculate-button:active {
+  border: 2px solid grey;
   transform: scale(0.8);
 }
 
