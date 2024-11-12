@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "jsleveloneone.js",
   "scripts": {
-    "watch": "sass -w ./easy_sqare_calculator/styles/input.scss ./easy_sqare_calculator/styles/output.css"
+    "watch": "sass -w ./easy_sqare_calculator/styles/input.scss ./easy_sqare_calculator/styles/output.css",
+    "secondWatch": "sass -w ./equation_roots/styles/style.scss ./equation_roots/styles/output.css"
   },
   "keywords": [],
   "author": "",

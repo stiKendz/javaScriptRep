@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equasion Calculator</title>
+    <link rel="stylesheet" href="./styles/output.css">
 </head>
 <body>
-    
     <header>
-        Вычисление корней квадратного уравнения
+        Шапка без стилей
     </header>
     <div class="main">
-        <input type="text" placeholder="Введите a" class="input-a">
-        <input type="text" placeholder="Введите b" class="input-b">
-        <input type="text" placeholder="Введите c" class="input-c">
-        <button type="button" class="calculate-button">Вычислить корни</button>
-        <div class="output-result"></div>
+        <div class="discrimimant-quest-container">
+            <input type="text" placeholder="Введите a" class="input-a">
+            <input type="text" placeholder="Введите b" class="input-b">
+            <input type="text" placeholder="Введите c" class="input-c">
+            <button type="button" class="calculate-button">Вычислить корни</button>
+            <div class="output-result">Результат будет здесь</div>
+        </div>
+        <div class="piphagor-trio-container">
+            <input type="text" placeholder="Введите a" class="input-trio-a">
+            <input type="text" placeholder="Введите b" class="input-trio-b">
+            <input type="text" placeholder="Введите c" class="input-trio-c">
+            <button type="button" class="calculate-trio-button">Проверить тройку</button>
+            <div class="output-trio-result">Результат будет здесь</div>
+        </div>
     </div>
     <footer>
-        Пока что без стилей
+        Подвал без стилей
     </footer>
     <script src="./index.js"></script>
 </body>

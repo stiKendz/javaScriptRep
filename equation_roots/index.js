@@ -1,3 +1,4 @@
+// Калькулатор дискриминанта
 let aDigit = document.querySelector('.input-a');
 let bDigit = document.querySelector('.input-b');
 let cDigit = document.querySelector('.input-c');
@@ -31,6 +32,17 @@ function calculateRoots() {
     }
 }
 
+// Тройка пифогора
+let trioPartA = document.querySelector('.input-trio-a');
+let trioPartB = document.querySelector('.input-trio-b');
+let trioPartC = document.querySelector('.input-trio-c');
+let calculateTrioButton = document.querySelector('.calculate-trio-button');
+let trioResult = document.querySelector('.output-trio-result');
+
+function calculatePiphagorTrio() {
+
+}
+
 calculateButton.addEventListener('click', function() {
     calculateRoots();
-})
+});
