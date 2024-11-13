@@ -32,6 +32,10 @@ function calculateRoots() {
     }
 }
 
+calculateButton.addEventListener('click', function() {
+    calculateRoots();
+});
+
 // Тройка пифогора
 let trioPartA = document.querySelector('.input-trio-a');
 let trioPartB = document.querySelector('.input-trio-b');
@@ -39,10 +43,61 @@ let trioPartC = document.querySelector('.input-trio-c');
 let calculateTrioButton = document.querySelector('.calculate-trio-button');
 let trioResult = document.querySelector('.output-trio-result');
 
-function calculatePiphagorTrio() {
+function toKnowPiphagorTrio() {
+    let a = Number(trioPartA.value);
+    let b = Number(trioPartB.value);
+    let c = Number(trioPartC.value);
 
+    if (a**2 === b**2 + c**2 || b**2 === a**2 + c**2 || c**2 === a**2 + b**2) {
+        return trioResult.innerHTML = "Введеные числа являются тройкой Пифагора"
+    } else {
+        return trioResult.innerHTML = "Введеные числа не являются тройкой Пифагора"
+    }
 }
 
-calculateButton.addEventListener('click', function() {
-    calculateRoots();
+calculateTrioButton.addEventListener('click', function() {
+    toKnowPiphagorTrio();
 });
+
+// Общие делители двух чисел
+let numberOne = document.querySelector('.input-number-a');
+let numberTwo = document.querySelector('.input-number-b');
+let calculateDivisorsButton = document.querySelector('.calculate-divisors-button');
+let outputDivisors = document.querySelector('.output-divisors-result');
+
+function calculateDivisors() {
+    let firstNumber = Number(numberOne.value);
+    let secondNumber = Number(numberTwo.value);
+
+    let numbersArray = {firstNumber, secondNumber};
+    let divisors = [];
+
+    if (firstNumber > secondNumber) {
+        for (let i = secondNumber; i < firstNumber; i++) {
+            if (secondNumber % i === 0 && firstNumber % i === 0) {
+                divisors.push(i);
+            } else {
+                return outputDivisors.innerHTML = "ошибка в 1"
+            }
+        }
+    } 
+    else if (firstNumber < secondNumber) {
+        for (let i = firstNumber; i <= secondNumber; i++) {
+            if (secondNumber % i === 0 && firstNumber % i === 0) {
+                divisors.push(i);
+            } else {
+                return outputDivisors.innerHTML = "ошибка в 2"
+            }
+        }
+    } 
+    else {
+        return outputDivisors.innerHTML = "Другая ошибка"
+    }
+
+    return outputDivisors.innerHTML = JSON.stringify(divisors);
+}
+
+calculateDivisorsButton.addEventListener('click', function() {
+    calculateDivisors();
+});
+
