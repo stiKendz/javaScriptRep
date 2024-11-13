@@ -66,35 +66,50 @@ let calculateDivisorsButton = document.querySelector('.calculate-divisors-button
 let outputDivisors = document.querySelector('.output-divisors-result');
 
 function calculateDivisors() {
-    let firstNumber = Number(numberOne.value);
-    let secondNumber = Number(numberTwo.value);
+    let firstNumber = parseFloat(numberOne.value);
+    let secondNumber = parseFloat(numberTwo.value);
 
-    let numbersArray = {firstNumber, secondNumber};
+    let minimumNumber = Math.min(firstNumber, secondNumber);
     let divisors = [];
 
-    if (firstNumber > secondNumber) {
-        for (let i = secondNumber; i < firstNumber; i++) {
-            if (secondNumber % i === 0 && firstNumber % i === 0) {
-                divisors.push(i);
-            } else {
-                return outputDivisors.innerHTML = "ошибка в 1"
-            }
-        }
-    } 
-    else if (firstNumber < secondNumber) {
-        for (let i = firstNumber; i <= secondNumber; i++) {
-            if (secondNumber % i === 0 && firstNumber % i === 0) {
-                divisors.push(i);
-            } else {
-                return outputDivisors.innerHTML = "ошибка в 2"
-            }
-        }
-    } 
-    else {
-        return outputDivisors.innerHTML = "Другая ошибка"
-    }
+    // Белиберда с кривой логикой (забыл про Math.min)
+    // if (firstNumber > secondNumber) {
+    //     for (let i = secondNumber; i < firstNumber; i++) {
+    //         if (secondNumber % i === 0 && firstNumber % i === 0) {
+    //             divisors.push(i);
+    //         } else {
+    //             return outputDivisors.innerHTML = "ошибка в 1"
+    //         }
+    //     }
+    // } 
+    // else if (firstNumber < secondNumber) {
+    //     for (let i = firstNumber; i <= secondNumber; i++) {
+    //         if (secondNumber % i === 0 && firstNumber % i === 0) {
+    //             divisors.push(i);
+    //         } else {
+    //             return outputDivisors.innerHTML = "ошибка в 2"
+    //         }
+    //     }
+    // } 
+    // else {
+    //     return outputDivisors.innerHTML = "Другая ошибка"
+    // }
 
-    return outputDivisors.innerHTML = JSON.stringify(divisors);
+    if (firstNumber <= 0 || secondNumber <= 0) {
+        return outputDivisors.innerHTML = "Число в поле ввода не может быть < или = 0"
+    } else {
+        for (let i = 1; i <= minimumNumber; i++) {
+            if (firstNumber % i === 0 && secondNumber % i === 0) {
+                divisors.push(i);
+            }
+        }
+
+        if (divisors.length === 0) {
+            return outputDivisors.innerHTML = "У чисел нет общих делителей";
+        } else {
+            return outputDivisors.innerHTML = JSON.stringify(divisors);
+        }
+    }
 }
 
 calculateDivisorsButton.addEventListener('click', function() {
