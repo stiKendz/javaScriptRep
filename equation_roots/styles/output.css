@@ -22,12 +22,10 @@ footer {
   flex-grow: 0;
 }
 
-.discrimimant-quest-container {
-  width: 100%;
-  height: 200px;
-}
-
-.piphagor-trio-container {
+.discrimimant-quest-container,
+.piphagor-trio-container,
+.common-divisor-container,
+.random-game-container {
   width: 100%;
   height: 200px;
 }

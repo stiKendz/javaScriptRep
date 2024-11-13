@@ -116,3 +116,41 @@ calculateDivisorsButton.addEventListener('click', function() {
     calculateDivisors();
 });
 
+// Игра угадайка
+let startGameButton = document.querySelector('.start-game-button');
+let sendNumberButton = document.querySelector('.send-number-button');
+let inputNumber = document.querySelector('.input-number');
+let outputGame = document.querySelector('.output-game');
+
+const upMessage = "Попробуй число побольше!";
+const downMessage = "Попробуй число поменьше!";
+let pcNumber = 0;
+
+const startGame = () => {
+    pcNumber = parseInt(Math.random() * 100);
+    console.log(pcNumber);
+}
+
+const runningGame = () => {
+    let userInput = parseInt(inputNumber.value);
+
+    if (pcNumber < userInput) {
+        outputGame.innerHTML = downMessage;
+    } else if (pcNumber > userInput) {
+        outputGame.innerHTML = upMessage;
+    } else {
+        outputGame.innerHTML = `Молодец, ты угадал(а) число - ${pcNumber}`;
+    }
+
+    return outputGame.innerHTML;
+};
+
+startGameButton.addEventListener('click', function() {
+    startGame();
+});
+
+sendNumberButton.addEventListener('click', function() {
+    runningGame();
+});
+
+
