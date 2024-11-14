@@ -1,36 +1,127 @@
+// Переменные
+// $baseInputPadding: 5px 20px 5px 0px;
+$mainColorOne: #2d466c;
+$mainColorTwo: #0ec217;
+$mainTextColor: #fff;
+$baseFontFamily: Oswald;
+// $baseButtonPadding: 15px 20px;
+
+// Миксины
 @mixin flexColumn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
 }
+
+@mixin centerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin baseSmallContainer {
     width: 100%;
     height: 200px;
 }
 
+@font-face {
+    font-family: Oswald;
+    src: url(../../easy_sqare_calculator/fonts/static/Oswald-Regular.ttf);
+}
+
+// страница
 html,
 body {
     @include flexColumn;
     justify-content: start;
     width: 100vw;
     height: 100%;
+
+    background-color: $mainColorOne;
+    color: $mainTextColor;
+
+    font-family: $baseFontFamily;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    @include centerFlex;
+    width: 100%;
+    height: 100px;
+
+    font-size: 26px;
 }
 
 .main {
     @include flexColumn;
     flex-grow: 1;
+    width: 100%;
+    margin-top: 20px;
 }
 
 footer {
-    display: flex;
+    @include centerFlex;
     flex-grow: 0;
+    width: 100%;
+    height: 100px;
+
+    font-size: 26px;
 }
 
+input {
+    @include centerFlex;
+    width: 200px;
+    height: 50px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+    // padding: $baseInputPadding;
+
+    font-size: 18px;
+    font-family: $baseFontFamily;
+    text-align: center;
+
+    outline: none;
+
+    &:focus {
+        
+    }
+}
+
+button {
+    @include centerFlex;
+    width: 200px;
+    height: 50px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+    // padding: $baseButtonPadding;
+
+    font-size: 18px;
+    font-family: $baseFontFamily;
+
+    background-color: $mainColorTwo;
+    color: $mainTextColor;
+
+    cursor: pointer;
+    user-select: none;
+}
 
 .discrimimant-quest-container,
 .piphagor-trio-container,
 .common-divisor-container,
 .random-game-container {
     @include baseSmallContainer;
+    @include centerFlex;
+    gap: 0px 10px;
+
+    @media screen and (max-width: 700px){
+        @include flexColumn;
+    }
 }
+
