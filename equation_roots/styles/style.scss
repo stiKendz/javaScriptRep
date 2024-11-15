@@ -23,6 +23,10 @@ $baseFontFamily: Oswald;
 @mixin baseSmallContainer {
     width: 100%;
     height: 200px;
+
+    @media screen and (max-width: 1200px) {
+        height: 300px;
+    }
 }
 
 @font-face {
@@ -55,6 +59,15 @@ header {
     height: 100px;
 
     font-size: 26px;
+
+    background-color: $mainColorTwo;
+
+    @media screen and (max-width: 870px) {
+        font-size: 20px;
+    }
+    @media screen and (max-width: 1200px) {
+        font-size: 22px;
+    }
 }
 
 .main {
@@ -68,15 +81,17 @@ footer {
     @include centerFlex;
     flex-grow: 0;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
 
     font-size: 26px;
+
+    background-color: $mainColorTwo;
 }
 
 input {
     @include centerFlex;
     width: 200px;
-    height: 50px;
+    min-height: 50px;
     margin: 0;
     border: 0;
     border-radius: 20px;
@@ -89,14 +104,15 @@ input {
     outline: none;
 
     &:focus {
-        
+        transition: 0.5s;
+        box-shadow: 0px 5px 1px 0px grey;
     }
 }
 
 button {
     @include centerFlex;
     width: 200px;
-    height: 50px;
+    min-height: 50px;
     margin: 0;
     border: 0;
     border-radius: 20px;
@@ -110,6 +126,8 @@ button {
 
     cursor: pointer;
     user-select: none;
+    outline: none;
+
 }
 
 .discrimimant-quest-container,
@@ -120,8 +138,16 @@ button {
     @include centerFlex;
     gap: 0px 10px;
 
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 870px){
         @include flexColumn;
+        gap: 10px 0px;
+        margin-top: 100px;
+    }
+
+    @media screen and (max-width: 1200px){
+        @include flexColumn;
+        gap: 10px 0px;
+        margin-top: 100px;
     }
 }
 
